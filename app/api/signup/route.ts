@@ -39,14 +39,26 @@ export async function POST(req: NextRequest) {
                 {message: `password must contain 8 letters`}
             )
         }
-        const res = await prisma.user.create({
-            data: {
-                email,
-                password: hashedPassword,
-                firstName,
-                lastName,
-            }
+        const res = await prisma.$transaction(async (tx) => {
+            const user = await tx.user.create({
+                data: {
+                    email,
+                    password: hashedPassword,
+                    firstName,
+                    lastName
+                }
+            })
+
+            const bankAccount = await tx.bankAccount.create({
+                data: {
+                    balance: 0,
+                    user_id: user.id,
+
+                }
+            })
         })
+
+        
         console.log(res)
         return NextResponse.json({
             message: `Signed up successfully!`

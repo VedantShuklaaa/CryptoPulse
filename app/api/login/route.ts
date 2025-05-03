@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { cookies } from "next/headers";
+import { serialize } from 'cookie'
 import { PrismaClient } from "@prisma/client";
 import { z } from 'zod';
 import jwt from 'jsonwebtoken';
@@ -9,7 +9,6 @@ dotenv.config();
 
 const jwtPassword = process.env.jwtPassword as string
 const prisma = new PrismaClient();
-{/*const CookieStore = cookies();*/}
 
 const loginSchema = z.object({
     email: z.string().email('invalid input'),
@@ -46,21 +45,24 @@ export async function POST(req: NextRequest) {
         if (!jwtPassword) {
             throw new Error('jwt password is not defined in environment variable!')
         }
-        const token = jwt.sign({ email: email }, jwtPassword, { expiresIn: '7d' });
-        {/*(await CookieStore).set('token', token, {
+        
+        const token = jwt.sign({ email: email, id: userExist?.id }, jwtPassword, { expiresIn: '7d' });
+        const cookie = serialize('token', token, {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
             sameSite: 'strict',
+            path: '/',
             maxAge: 7 * 24 * 60 * 60 * 1000
-        })*/}
+        })
 
         return NextResponse.json(
-            {message: `successfully logged in`, token}
+            {message: `successfully logged in`},
+            {headers: {'Set-Cookie': cookie}}
         )
     } catch (err) {
         return NextResponse.json(
             { message: `something's up with the server` },
-            { status: 500 }
+            { status: 500 },
         )
     }
 }

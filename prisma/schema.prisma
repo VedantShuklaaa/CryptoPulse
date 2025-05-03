@@ -14,8 +14,8 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model user {
-  id                      Int               @id @default(autoincrement())
+model User {
+  id                      String            @id @default(uuid())
   email                   String            @unique
   password                String
   firstName               String
@@ -24,20 +24,20 @@ model user {
 }
 
 model bankAccount {
-  id                      Int               @id @default(autoincrement())
-  balance                 Int        
+  id                      String            @id @default(uuid())
+  balance                 Float             @default(0)
   KYC_Status              Boolean           @default(false)
-  PAN_number              String
-  user_id                 Int
-  user                    user              @relation(fields: [user_id], references: [id])
+  PAN_number              String?
+  user_id                 String            @unique
+  user                    User              @relation(fields: [user_id], references: [id])
   transactionSent         Transaction[]     @relation("SenderTransactions")                  
   transactionRecieved     Transaction[]     @relation("RecieverTransactions")
 }
 
 model Transaction {
-  id                      Int               @id @default(autoincrement())
-  senderId                Int
-  recieverId              Int
+  id                      String            @id @default(uuid())
+  senderId                String
+  recieverId              String
   amount                  Float
   createdAt               DateTime          @default(now())
   sender                  bankAccount       @relation("SenderTransactions", fields: [senderId], references: [id])

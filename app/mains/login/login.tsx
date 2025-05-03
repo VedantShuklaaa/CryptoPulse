@@ -9,7 +9,6 @@ import {
   IconBrandOnlyfans,
 } from "@tabler/icons-react";
 import axios from 'axios'
-import { AlertDemo } from "../alerts/alert";
 
 
 export function LoginFormDemo() {
@@ -25,7 +24,7 @@ export function LoginFormDemo() {
 
       alert(res.data.message || "login successfull")
     } catch (err: any) {
-      alert(err.response.data.message || "login failed")
+      alert(err.res.data.message || "login failed")
     }
   }
 
@@ -33,10 +32,10 @@ export function LoginFormDemo() {
   return (
     <div className="shadow-input mx-auto w-full max-w-md rounded-none bg-white p-4 md:rounded-2xl md:p-8 dark:bg-black/50">
       <h2 className="text-xl font-bold text-neutral-800 dark:text-neutral-200">
-        Welcome to Cryptopulse
+        Welcome to Fundora
       </h2>
       <p className="mt-2 max-w-sm text-sm text-neutral-600 dark:text-neutral-300">
-        Login to Cryptopulse if you can because we don&apos;t have a login flow
+        Login to Fundora if you can because we don&apos;t have a login flow
         yet
       </p>
 

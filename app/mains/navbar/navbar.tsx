@@ -20,9 +20,9 @@ export default function NavigationBar() {
   
   const navItems = [
     { name: "Home", link: "/" },
-    { name: "Transactions", link: "/transactions" },
-    { name: "Send/Recieve", link: "/SR" },
-    { name: "Dashboard", link: "/dashboard" },
+    { name: "Transactions", link: "/user/transactionsHistory" },
+    { name: "Send/Recieve", link: "/user/sr" },
+    { name: "Dashboard", link: "/user/dashboard" },
     { name: "About", link: "/about" }
   ];
 
