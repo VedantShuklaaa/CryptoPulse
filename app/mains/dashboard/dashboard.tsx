@@ -1,11 +1,10 @@
 'use client';
-import react, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Input } from '@/components/ui/input';
 import { InfoMarker } from '@/app/mains/infoMarker/info';
 import axios from 'axios';
 import { AlertDialogDemo } from '@/app/mains/alertDIalog/alertDialog'
-import { AlertDialogAction } from '@/app/mains/alertDIalog/alertDialog';
 
 export default function Dashboard() {
 
@@ -47,7 +46,7 @@ export default function Dashboard() {
         }
 
         fetchUser();
-    }, [AlertDialogAction])
+    }, [])
 
 
     return (
