@@ -1,3 +1,4 @@
+"use cache";
 import react from 'react';
 import Dashboard from '@/app/mains/dashboard/dashboard';
 import { cn } from '@/lib/utils';

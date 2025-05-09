@@ -20,7 +20,7 @@ export default function NavigationBar() {
   
   const navItems = [
     { name: "Home", link: "/" },
-    { name: "Transactions", link: "/user/transactionsHistory" },
+    { name: "Transactions", link: "/user/transactions" },
     { name: "Send/Recieve", link: "/user/sr" },
     { name: "Dashboard", link: "/user/dashboard" },
     { name: "About", link: "/about" }
@@ -28,7 +28,7 @@ export default function NavigationBar() {
 
   return (
     <Navbar>
-      {/* Desktop Navigation */}
+
       <NavBody>
         <NavbarLogo />
         <NavItems items={navItems} />
@@ -38,7 +38,7 @@ export default function NavigationBar() {
         </div>
       </NavBody>
 
-      {/* Mobile Navigation */}
+
       <MobileNav>
         <MobileNavHeader>
           <NavbarLogo />

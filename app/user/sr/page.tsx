@@ -1,8 +1,9 @@
+"use cache";
 import React from "react";
 import { cn } from "@/lib/utils";
 import SR from "@/app/mains/sr/SR";
 
-export default function Send() {
+export default async function Send() {
     return (
         <div className="h-[100vh] w-full rounded-md relative flex flex-col items-center md:justify-center antialiased mt-[-54px]">
             <div

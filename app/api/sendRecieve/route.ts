@@ -58,6 +58,8 @@ export async function POST(req: NextRequest) {
 
             if (sender.bankAccount[0].balance < amount) throw new Error(`Insufficient balance in sender's account`);
 
+            if(!sender.bankAccount[0].KYC_Status || !reciever.KYC_Status) throw new Error('KYC of either sender or reciever is pending');
+
             const updateSenderBalance = await tx.bankAccount.update({
                 where: {
                     user_id: userData?.id

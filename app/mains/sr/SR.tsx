@@ -23,7 +23,7 @@ export default function SR() {
 
     const send = async () => {
         try {
-            const res = await axios.post('/api/dashboard/transactions', {
+            const res = await axios.post('/api/sendRecieve', {
                 amount: Number(amount),
                 recieverId: reciever
             })
@@ -73,7 +73,7 @@ export default function SR() {
 
 
     return (
-        <div className='absolute mt-40 z-1 h-[55vh] lg:h-[60vh] 2xl:h-[62vh] w-[90vw] lg:w-[70vw] xl:w-[60vw] 2xl:w-[50vw] p-2 flex flex-col justify-between items-center rounded-[1.5rem] border border-white/20  bg-white/4 backdrop-blur-sm '>
+        <div className='absolute mt-40 z-1 h-[55vh] lg:h-[60vh] 2xl:h-[62vh] w-[90vw] lg:w-[70vw] xl:w-[60vw] 2xl:w-[49vw] p-2 flex flex-col justify-between items-center rounded-[1.5rem] border border-white/20  bg-white/4 backdrop-blur-sm '>
             <div className='h-[38vh] xl:h-[40vh] w-full flex flex-col lg:items-center justify-between'>
                 <div className='h-[17vh] w-[85vw] lg:w-[65vw] xl:w-[57vw] 2xl:w-[48vw] border rounded-[1rem] border-white/20  bg-white/1 backdrop-blur-sm '>
                     <div className='h-[5vh] w-full flex justify-between items-center p-4'>
@@ -90,7 +90,7 @@ export default function SR() {
                         <span className='flex bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text font-bold text-transparent md:text-2xl'>{findUser?.user.firstName} {findUser?.user.lastName}</span>
                     </div>
                     <div className='h-[12vh] md:h-[11vh] w-full flex flex-col items-center justify-center md:justify-between'>
-                        <Input placeholder="enter the reciever's user-id" className='w-[75vw] lg:w-[60vw] xl:w-[52vw] 2xl:w-[46vw]' type='string' value={sendUser} onChange={(e) => { setSendUser(e.target.value), setReciever(e.target.value) }} />
+                        <Input placeholder="enter the reciever's id" className='w-[75vw] lg:w-[60vw] xl:w-[52vw] 2xl:w-[46vw]' type='string' value={sendUser} onChange={(e) => { setSendUser(e.target.value), setReciever(e.target.value) }} />
                         <button
                             className="group/btn cursor-pointer relative block h-10 md:h-12 w-40 rounded-md bg-gradient-to-br from-black to-neutral-600 font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:bg-zinc-800 dark:from-zinc-900 dark:to-zinc-900 dark:shadow-[0px_1px_0px_0px_#27272a_inset,0px_-1px_0px_0px_#27272a_inset]"
                             type="submit"

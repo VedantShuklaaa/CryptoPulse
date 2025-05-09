@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { InfoMarker } from '@/app/mains/infoMarker/info';
 import axios from 'axios';
 import { AlertDialogDemo } from '@/app/mains/alertDIalog/alertDialog'
+import useSWR from 'swr'
 
 export default function Dashboard() {
 
@@ -14,7 +15,7 @@ export default function Dashboard() {
         try {
             const res = await axios.post('/api/dashboard/pan', {
                 PAN_number
-            })
+            },)
 
             alert(res.data.message || 'credentials sent!')
         } catch (err: any) {
@@ -35,10 +36,32 @@ export default function Dashboard() {
 
     useEffect(() => {
         const fetchUser = async () => {
+            const CACHE_KEY = 'user_cache';
+            const CACHE_DURATION = 3600000;
             try {
+
+                const cachedData = localStorage.getItem(CACHE_KEY);
+
+                if (cachedData) {
+                    const { data, timestamp } = JSON.parse(cachedData);
+                    const now = Date.now();
+
+                    // If the cache hasn't expired, use it
+                    if (now - timestamp < CACHE_DURATION) {
+                        console.log('Using cached user data');
+                        setUser(data.user);
+                        return;
+                    }
+                    console.log('User cache expired, fetching fresh data');
+                }
+
                 const res = await axios.get('/api/user')
                 setUser(res.data.user)
 
+                localStorage.setItem(CACHE_KEY, JSON.stringify({
+                    data: res.data,
+                    timestamp: Date.now()
+                }));
 
             } catch (err) {
                 console.log(`failed to fetch data!`)

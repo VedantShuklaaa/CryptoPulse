@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
         const userExist = await prisma.user.findUnique({
             where: {
                 email
-            }
+            },
         })
 
         if (!userExist) {

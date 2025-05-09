@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { cn } from "@/lib/utils";
 import React from "react";
 
@@ -16,7 +15,7 @@ export default function Home() {
       {/* Radial gradient for the container to give a faded look */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black "></div>
       <p className="relative z-20 bg-gradient-to-b from-neutral-200 h-200 w-400 to-neutral-500 bg-clip-text py-8 text-4xl font-bold text-transparent sm:text-7xl  mt-45 flex items-center justify-center">
-        Welcome to Fundora
+        
       </p>
     </div>
   );
