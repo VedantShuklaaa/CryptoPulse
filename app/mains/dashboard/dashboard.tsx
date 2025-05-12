@@ -5,7 +5,10 @@ import { Input } from '@/components/ui/input';
 import { InfoMarker } from '@/app/mains/infoMarker/info';
 import axios from 'axios';
 import { AlertDialogDemo } from '@/app/mains/alertDIalog/alertDialog'
-import useSWR from 'swr'
+import dotenv from 'dotenv';
+dotenv.config()
+
+const cache_Key = process.env.CACHE_KEY as string;
 
 export default function Dashboard() {
 
@@ -36,7 +39,7 @@ export default function Dashboard() {
 
     useEffect(() => {
         const fetchUser = async () => {
-            const CACHE_KEY = 'user_cache';
+            const CACHE_KEY = cache_Key;
             const CACHE_DURATION = 3600000;
             try {
 
