@@ -34,8 +34,8 @@ export function SignupFormDemo() {
 
 
   return (
-    <div className="mx-auto w-full max-w-md md:rounded-2xl p-1 border-2 border-zinc-600 bg-linear-to-bl from-blue-600 to-pink-500">
-      <div className="shadow-input  mx-auto w-full max-w-md rounded-none bg-white p-4 md:rounded-2xl md:p-8 dark:bg-black">
+    <div className="mx-auto w-full max-w-md p-1 border bg-linear-to-bl from-blue-600 to-pink-500" style={{borderColor: 'var(--border)', borderRadius: 'var(--radius)'}}>
+      <div className="shadow-input mx-auto w-full max-w-md p-4 border md:p-8 " style={{backgroundColor: 'var(--background)', borderColor: 'var(--border)', borderRadius: 'var(--radius)'}}>
         <h2 className="text-xl font-bold text-neutral-800 dark:text-neutral-200">
           Welcome to Fundora
         </h2>
@@ -48,20 +48,20 @@ export function SignupFormDemo() {
           <div className="mb-4 flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2">
             <LabelInputContainer>
               <Label htmlFor="firstname">First name</Label>
-              <Input id="firstname" placeholder="Tyler" type="text" value={firstName} onChange={(e) => { setFirstName(e.target.value) }} />
+              <Input id="firstname" placeholder="Tyler" type="text" value={firstName} onChange={(e) => { setFirstName(e.target.value) }} style={{backgroundColor: 'var(--input)'}}/>
             </LabelInputContainer>
             <LabelInputContainer>
               <Label htmlFor="lastname">Last name</Label>
-              <Input id="lastname" placeholder="Durden" type="text" value={lastName} onChange={(e) => { setLastName(e.target.value) }} />
+              <Input id="lastname" placeholder="Durden" type="text" value={lastName} onChange={(e) => { setLastName(e.target.value) }} style={{backgroundColor: 'var(--input)'}}/>
             </LabelInputContainer>
           </div>
           <LabelInputContainer className="mb-4">
             <Label htmlFor="email">Email Address</Label>
-            <Input id="email" placeholder="projectmayhem@fc.com" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <Input id="email" placeholder="projectmayhem@fc.com" type="email" value={email} onChange={(e) => setEmail(e.target.value)} style={{backgroundColor: 'var(--input)'}}/>
           </LabelInputContainer>
           <LabelInputContainer className="mb-4">
             <Label htmlFor="password">Password</Label>
-            <Input id="password" placeholder="••••••••" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+            <Input id="password" placeholder="••••••••" type="password" value={password} onChange={(e) => setPassword(e.target.value)} style={{backgroundColor: 'var(--input)'}}/>
           </LabelInputContainer>
 
           <button

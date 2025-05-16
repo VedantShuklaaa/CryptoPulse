@@ -30,8 +30,8 @@ export function LoginFormDemo() {
 
 
   return (
-    <div className="mx-auto w-full max-w-md rounded-none md:rounded-2xl p-1 border-2 border-zinc-600 bg-linear-to-bl from-blue-600 to-pink-500">
-      <div className="shadow-input mx-auto w-full max-w-md rounded-none bg-white p-4 md:rounded-2xl md:p-8 dark:bg-black">
+    <div className="mx-auto w-full max-w-md p-1 border bg-linear-to-bl from-blue-600 to-pink-500" style={{borderColor: 'var(--border)', borderRadius: 'var(--radius)'}}>
+      <div className="shadow-input mx-auto w-full max-w-md border p-4 md:rounded-2xl md:p-8 " style={{borderColor: 'var(--border)', borderRadius: 'var(--radius)', backgroundColor: 'var(--background)'}}>
         <h2 className="text-xl font-bold text-neutral-800 dark:text-neutral-200">
           Welcome to Fundora
         </h2>
@@ -43,11 +43,11 @@ export function LoginFormDemo() {
         <form className="my-8" onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}>
           <LabelInputContainer className="mb-4">
             <Label htmlFor="email">Email Address</Label>
-            <Input id="email" placeholder="projectmayhem@fc.com" type="email" value={email} onChange={(e) => { setEmail(e.target.value) }} />
+            <Input id="email" placeholder="projectmayhem@fc.com" type="email" value={email} onChange={(e) => { setEmail(e.target.value) }} style={{backgroundColor: 'var(--input)'}}/>
           </LabelInputContainer>
           <LabelInputContainer className="mb-4">
             <Label htmlFor="password">Password</Label>
-            <Input id="password" placeholder="••••••••" type="password" value={password} onChange={(e) => { setPassword(e.target.value) }} />
+            <Input id="password" placeholder="••••••••" type="password" value={password} onChange={(e) => { setPassword(e.target.value) }} style={{backgroundColor: 'var(--input)'}}/>
           </LabelInputContainer>
           <button
             className="group/btn cursor-pointer relative block h-10 w-full rounded-md bg-gradient-to-br from-black to-neutral-600 font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:bg-zinc-800 dark:from-zinc-900 dark:to-zinc-900 dark:shadow-[0px_1px_0px_0px_#27272a_inset,0px_-1px_0px_0px_#27272a_inset]"

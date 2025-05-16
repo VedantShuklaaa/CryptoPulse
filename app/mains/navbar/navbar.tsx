@@ -1,4 +1,3 @@
-// Example usage in app/layout.tsx or any page file
 "use client";
 
 import {
@@ -11,8 +10,9 @@ import {
   MobileNavHeader,
   MobileNavMenu,
   MobileNavToggle
-} from "@/components/ui/resizable-navbar"; // Adjust the path based on where you saved the file
+} from "@/components/ui/resizable-navbar"; 
 import { useState } from "react";
+import { ModeToggle } from "@/app/mains/theme_button/themes";
 
 
 export default function NavigationBar() {
@@ -23,18 +23,17 @@ export default function NavigationBar() {
     { name: "Transactions", link: "/user/transactions" },
     { name: "Send/Recieve", link: "/user/sr" },
     { name: "Dashboard", link: "/user/dashboard" },
-    { name: "About", link: "/about" }
   ];
 
   return (
     <Navbar>
-
       <NavBody>
         <NavbarLogo />
         <NavItems items={navItems} />
-        <div className="relative z-20 flex flex-row space-x-2">
+        <div className="relative z-20 flex flex-row space-x-1">
           <NavbarButton variant="secondary" href="/auth/login">Login</NavbarButton>
           <NavbarButton href="/auth/signup">Sign Up</NavbarButton>
+          <ModeToggle/>
         </div>
       </NavBody>
 
@@ -58,9 +57,10 @@ export default function NavigationBar() {
               {item.name}
             </a>
           ))}
-          <div className="mt-4 flex w-full flex-col gap-2">
-            <NavbarButton variant="secondary" href="/auth/login">Login</NavbarButton>
-            <NavbarButton href="/auth/signup">Sign Up</NavbarButton>
+          <div className="mt-4 flex w-full flex-col items-center gap-2">
+            <NavbarButton variant="secondary" href="/auth/login" className="w-full">Login</NavbarButton>
+            <NavbarButton href="/auth/signup" className="w-full">Sign Up</NavbarButton>
+            <ModeToggle/>
           </div>
         </MobileNavMenu>
       </MobileNav>

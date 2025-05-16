@@ -10,9 +10,9 @@ export default function hero() {
     const words = ["Finances", "Accounting", "Banking", "Investments"];
 
     return (
-        <div className="font-normal text-neutral-600 dark:text-neutral-400 w-[90vw] h-[65vh] lg:h-[100vh] border-2 border-zinc-700 flex justify-center items-center rounded-[2rem] overflow-hidden relative">
+        <div className="font-normal w-[90vw] h-[65vh] md:h-[90vh] lg:h-[100vh] border-2 flex justify-center items-center overflow-hidden relative" style={{borderColor: 'var(--border)', borderRadius: 'var(--radius)'}}>
             <BackgroundGradientAnimation >
-                <div className="absolute z-50 inset-0 flex flex-col items-center justify-start xl:w-[90vw] text-white font-bold px-4  pt-45 lg:pt-15 2xl:pt-25">
+                <div className="absolute z-1 inset-0 flex flex-col items-center justify-start xl:w-[90vw] text-white font-bold px-4  pt-45 lg:pt-15 2xl:pt-25">
                     <div className=" ">
                         <p className="bg-clip-text text-transparent drop-shadow-2xl bg-gradient-to-b from-white/80 to-white/20">
                             <h1 className="text-10xl text-center text-3xl md:text-4xl lg:text-8xl">

@@ -73,27 +73,27 @@ export default function SR() {
 
 
     return (
-        <div className='border-1 border-zinc-600 bg-linear-to-bl from-blue-600 to-pink-500 rounded-[1.7rem] z-1 h-[56vh] md:h-[55.5vh] lg:h-[61vh] 2xl:h-[63vh] w-[92vw] md:w-[91vw] lg:w-[70.5vw] xl:w-[60.5vw] 2xl:w-[49.5vw] flex justify-center items-center mt-50'>
-            <div className='absolute z-1 h-[55vh] lg:h-[60vh] 2xl:h-[62vh] w-[90vw] lg:w-[70vw] xl:w-[60vw] 2xl:w-[49vw] p-2 flex flex-col justify-between items-center rounded-[1.5rem] bg-black backdrop-blur-sm '>
+        <div className='border bg-linear-to-bl from-blue-600 to-pink-500 z-1 h-[56vh] md:h-[55.5vh] lg:h-[61vh] 2xl:h-[63vh] w-[92vw] md:w-[91vw] lg:w-[70.5vw] xl:w-[60.5vw] 2xl:w-[45.5vw] flex justify-center items-center mt-50' style={{borderRadius: 'var(--radius)', borderColor: 'var(--border)'}}>
+            <div className='absolute z-1 h-[55vh] lg:h-[60vh] 2xl:h-[62vh] w-[90vw] lg:w-[70vw] xl:w-[60vw] 2xl:w-[45vw] p-2 flex flex-col justify-between items-center ' style={{borderRadius: 'var(--radius)', borderColor: 'var(--border)', backgroundColor: 'var(--card)'}}>
                 <div className='h-[38vh] xl:h-[40vh] w-full flex flex-col lg:items-center justify-between'>
-                    <div className='h-[17vh] w-[85vw] lg:w-[65vw] xl:w-[57vw] 2xl:w-[48vw] border rounded-[1rem] border-white/20  bg-white/1 backdrop-blur-sm '>
+                    <div className='h-[17vh] w-[85vw] lg:w-[65vw] xl:w-[57vw] 2xl:w-[44vw] border' style={{borderRadius: 'var(--radius)', borderColor: 'var(--border)', backgroundColor: 'var(--background)'}}>
                         <div className='h-[5vh] w-full flex justify-between items-center p-4'>
-                            <span className='bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text font-bold text-transparent md:text-2xl'>From -</span>
-                            <span className='flex bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text font-bold text-transparent md:text-2xl'>{user.firstName} {user.lastName}</span>
+                            <span className='md:text-2xl'>From -</span>
+                            <span className='flex  md:text-2xl'>{user.firstName} {user.lastName}</span>
                         </div>
                         <div className='h-[12vh] w-full flex flex-col items-center justify-center'>
-                            <Input placeholder='enter the amount' className='w-[75vw] lg:w-[60vw] xl:w-[52vw] 2xl:w-[46vw]' type='number' value={amount} onChange={(e) => { setAmount(e.target.value) }} />
+                            <Input placeholder='enter the amount' className='w-[75vw] lg:w-[60vw] xl:w-[52vw] 2xl:w-[42vw]' type='number' value={amount} onChange={(e) => { setAmount(e.target.value) }} style={{backgroundColor: 'var(--input)'}}/>
                         </div>
                     </div>
-                    <div className='h-[17vh] w-[85vw] lg:w-[65vw] xl:w-[57vw] 2xl:w-[48vw] border rounded-[1rem] border-white/20  bg-white/1 backdrop-blur-sm '>
+                    <div className='h-[17vh] w-[85vw] lg:w-[65vw] xl:w-[57vw] 2xl:w-[44vw] border' style={{borderRadius: 'var(--radius)', borderColor: 'var(--border)', backgroundColor: 'var(--background)'}}>
                         <div className='h-[5vh] w-full flex justify-between items-center p-4'>
-                            <span className='bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text font-bold text-transparent md:text-2xl'>To -</span>
-                            <span className='flex bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text font-bold text-transparent md:text-2xl'>{findUser?.user.firstName} {findUser?.user.lastName}</span>
+                            <span className='md:text-2xl'>To -</span>
+                            <span className='flex md:text-2xl'>{findUser?.user.firstName} {findUser?.user.lastName}</span>
                         </div>
-                        <div className='h-[12vh] md:h-[11vh] w-full flex flex-col items-center justify-center md:justify-between'>
-                            <Input placeholder="enter the reciever's id" className='w-[75vw] lg:w-[60vw] xl:w-[52vw] 2xl:w-[46vw]' type='string' value={sendUser} onChange={(e) => { setSendUser(e.target.value), setReciever(e.target.value) }} />
+                        <div className='h-[12vh] md:h-[11vh] w-full flex flex-col items-center justify-center gap-1 md:justify-between'>
+                            <Input placeholder="enter the reciever's id" className='w-[75vw] lg:w-[60vw] xl:w-[52vw] 2xl:w-[42vw]' type='string' value={sendUser} onChange={(e) => { setSendUser(e.target.value), setReciever(e.target.value) }} style={{backgroundColor: 'var(--input)'}}/>
                             <button
-                                className="group/btn cursor-pointer relative block h-10 md:h-12 w-40 rounded-md bg-gradient-to-br from-black to-neutral-600 font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:bg-zinc-800 dark:from-zinc-900 dark:to-zinc-900 dark:shadow-[0px_1px_0px_0px_#27272a_inset,0px_-1px_0px_0px_#27272a_inset]"
+                                className="group/btn cursor-pointer relative block h-9 md:h-10 2xl:h-11 w-40 rounded-md bg-gradient-to-br from-black to-neutral-600 font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:bg-zinc-800 dark:from-zinc-900 dark:to-zinc-900 dark:shadow-[0px_1px_0px_0px_#27272a_inset,0px_-1px_0px_0px_#27272a_inset]"
                                 type="submit"
                                 onClick={handleSearch}
                             >Check user &rarr;
@@ -103,9 +103,10 @@ export default function SR() {
                     </div>
                 </div>
                 <button
-                    className="mb-4 group/btn cursor-pointer relative block h-10 md:h-12 w-[32vw] rounded-md bg-gradient-to-br from-black to-neutral-600 font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:bg-zinc-800 dark:from-zinc-900 dark:to-zinc-900 dark:shadow-[0px_1px_0px_0px_#27272a_inset,0px_-1px_0px_0px_#27272a_inset]"
+                    className="mb-4 group/btn cursor-pointer relative block h-10 md:h-12 w-[32vw] 2xl:w-[28vw] shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:bg-zinc-800 dark:from-zinc-900 dark:to-zinc-900 dark:shadow-[0px_1px_0px_0px_#27272a_inset,0px_-1px_0px_0px_#27272a_inset]"
                     type="submit"
                     onClick={send}
+                    style={{borderRadius: 'var(--radius)'}}
                 >
                     Send &rarr;
                     <BottomGradient />
